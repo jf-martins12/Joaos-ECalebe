@@ -9,14 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.ControllerRelatorioVendas">
    <children>
-      <Text layoutX="21.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relatorio De Vendas" wrappingWidth="367.95849609375">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Text>
-      <BubbleChart fx:id="Venda" layoutX="21.0" layoutY="88.0" prefHeight="348.0" prefWidth="440.0">
+     <!-- <BubbleChart fx:id="graficoVendas" layoutX="21.0" layoutY="93.0" prefHeight="348.0" prefWidth="440.0">
         <xAxis>
           <NumberAxis side="BOTTOM" />
         </xAxis>
@@ -27,12 +22,18 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </BubbleChart>
-      <TableView layoutX="516.0" layoutY="335.0" prefHeight="374.0" prefWidth="382.0">
+      -->
+      <Text layoutX="21.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relatorio De Vendas" wrappingWidth="367.95849609375">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tabelaVendas" layoutX="516.0" layoutY="335.0" prefHeight="374.0" prefWidth="382.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Produtos" />
-          <TableColumn prefWidth="126.0" text="Tamanho/cores" />
-            <TableColumn prefWidth="79.0" text="Valor unit." />
-            <TableColumn prefWidth="101.0" text="Valor vendido" />
+          <TableColumn fx:id="produto" prefWidth="75.0" text="Produtos" />
+          <TableColumn fx:id="tamanho" prefWidth="126.0" text="Tamanho" />
+            <TableColumn fx:id="valorUnitario" prefWidth="79.0" text="Valor unit." />
+            <TableColumn fx:id="valorVendido" prefWidth="101.0" text="Valor vendido" />
         </columns>
       </TableView>
       <Text layoutX="454.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="367.95849609375">
