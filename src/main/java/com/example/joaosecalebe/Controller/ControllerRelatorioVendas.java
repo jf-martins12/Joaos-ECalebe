@@ -1,8 +1,8 @@
 package com.example.joaosecalebe.Controller;
 
 import com.example.joaosecalebe.Model.Venda;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
@@ -10,25 +10,27 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+
+import java.util.ArrayList;
+
+import static com.example.joaosecalebe.DataBase.BancoDeDados.vendas;
+
 public class ControllerRelatorioVendas {
 
     @FXML
     private TableView<Venda> tabelaVendas;
 
     @FXML
-    private TableColumn<Venda, Number> Quantidade;
+    private TableColumn<Venda, String> produto;
 
     @FXML
-    private TableColumn<Venda, String> Produto;
+    private TableColumn<Venda, String> tamanho;
 
     @FXML
-    private TableColumn<Venda, String> Tamanho;
+    private TableColumn<Venda, Double> valorUnitario;
 
     @FXML
-    private TableColumn<Venda, Double> ValorUnitario;
-
-    @FXML
-    private TableColumn<Venda, Double> ValorVendido;
+    private TableColumn<Venda, Double> valorVendido;
 
     @FXML
     private BarChart<String, Number> graficoVendas;
@@ -37,51 +39,49 @@ public class ControllerRelatorioVendas {
     @FXML
     public void initialize() {
 
-        Produto.setCellValueFactory(
+        produto.setCellValueFactory(
                 new PropertyValueFactory<>("produto")
         );
 
-        Tamanho.setCellValueFactory(
+        tamanho.setCellValueFactory(
                 new PropertyValueFactory<>("tamanho")
         );
 
-        ValorUnitario.setCellValueFactory(
+        valorUnitario.setCellValueFactory(
                 new PropertyValueFactory<>("valorUnitario")
         );
 
-        ValorVendido.setCellValueFactory(
+        valorVendido.setCellValueFactory(
                 new PropertyValueFactory<>("valorVendido")
         );
 
 
-        ObservableList<Venda> vendas = FXCollections.observableArrayList();
+        tabelaVendas.getItems().setAll(vendas);
+        System.out.println("vendas:"+vendas);
 
-
-        tabelaVendas.setItems(vendas);
-
-        criarGrafico(vendas);
+        //criarGrafico(vendas);
     }
 
 
-    private void criarGrafico(ObservableList<Venda> vendas) {
+   // private void criarGrafico(ArrayList<Venda> vendas) {
 
-    XYChart.Series<String, Number> serie =
-            new XYChart.Series<>();
+//XYChart.Series<String, Number> serie =
+                       // new XYChart.Series<>();
 
-    serie.setName("Vendas");
+        //serie.setName("Vendas");
 
-    for (Venda venda : vendas) {
+       // for (Venda venda : vendas) {
 
-        serie.getData().add(
-                new XYChart.Data<>(
-                        venda.getProduto(),
-                        venda.getValorVendido()
-                )
-        );
-
-    }
-    graficoVendas.getData().clear();
-    graficoVendas.getData().add(serie);
+           // serie.getData().add(
+                   // new XYChart.Data<>(
+                           // venda.getProduto(),
+                            //venda.getValorVendido()
+              //  )
+        //);
 
     }
-}
+   // graficoVendas.getData().clear();
+    //graficoVendas.getData().add(serie);
+
+    //}
+//}
