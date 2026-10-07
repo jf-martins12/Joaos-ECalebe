@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
         BancoDeDados.vendas.add(new Venda("Calça","40",150.90,9.054));
         BancoDeDados.vendas.add(new Venda("tenis","41", 400.00, 8.000));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/RelatorioVendas.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/TelaCadastro.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 450, 537);
         stage.setTitle("Hello!");
         stage.setScene(scene);
