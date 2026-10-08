@@ -12,12 +12,9 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        BancoDeDados.vendas.add(new Venda("Camisa", "M", 139.00, 6.950));
-        BancoDeDados.vendas.add(new Venda("Calça","40",150.90,9.054));
-        BancoDeDados.vendas.add(new Venda("tenis","41", 400.00, 8.000));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/RelatorioVendas.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 450, 537);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/CadastroVenda.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 963, 733);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
