@@ -1,6 +1,5 @@
-package com.example.joaosecalebe.Controller;
-
-public class compra {
+package com.example.joaosecalebe.Model;
+class compra {
     private String produto;
     private int quantidade;
     private double preco;
