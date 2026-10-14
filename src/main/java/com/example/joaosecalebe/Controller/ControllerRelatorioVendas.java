@@ -1,6 +1,6 @@
 package com.example.joaosecalebe.Controller;
 
-import com.example.joaosecalebe.Model.Venda;
+import com.example.joaosecalebe.model.Venda;
 
 
 import javafx.fxml.FXML;

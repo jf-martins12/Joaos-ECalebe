@@ -1,4 +1,4 @@
-package com.example.joaosecalebe.Model;
+package com.example.joaosecalebe.model;
 
     public class Venda {
 

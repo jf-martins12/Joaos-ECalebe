@@ -49,14 +49,6 @@ public class controllerTelaCadastro {
         String Telefone = txTelefone.getText();
     }
 
-    {
-        if (txNome == null || txCpf == null || txTelefone == null || txEmail == null) {
-            exibirAlerta(Alert.AlertType.INFORMATION, "informações obrigatorias", "N foi possivel concluir!");
-
-        }
-
-
-    }
 
     private void exibirAlerta(Alert.AlertType tipo, String titulo, String mensagem) {
         Alert alert = new Alert(tipo);
