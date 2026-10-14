@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.ControllerRelatorioVendas">
-    <fx:include source="NavBar.fxml" />
    <children>
-     <!-- <BubbleChart fx:id="graficoVendas" layoutX="21.0" layoutY="93.0" prefHeight="348.0" prefWidth="440.0">
-        <xAxis>
-          <NumberAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </BubbleChart>
-      -->
-      <Text layoutX="21.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relatorio De Vendas" wrappingWidth="367.95849609375">
+      <Text layoutX="175.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relatorio De Vendas" wrappingWidth="367.95849609375">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tabelaVendas" layoutX="516.0" layoutY="335.0" prefHeight="374.0" prefWidth="382.0">
+      <TableView fx:id="tabelaVendas" layoutX="219.0" layoutY="303.0" prefHeight="374.0" prefWidth="647.0">
         <columns>
           <TableColumn fx:id="produto" prefWidth="75.0" text="Produtos" />
           <TableColumn fx:id="tamanho" prefWidth="126.0" text="Tamanho" />
-            <TableColumn fx:id="valorUnitario" prefWidth="79.0" text="Valor unit." />
-            <TableColumn fx:id="valorVendido" prefWidth="101.0" text="Valor vendido" />
-        </columns>
-      </TableView>
+            <TableColumn fx:id="quantidade" prefWidth="137.0" text="Quantidade" />
+            <TableColumn fx:id="fornecedor" prefWidth="87.0" text="Fornecedor" />
+            <TableColumn fx:id="valorUnitario" prefWidth="109.0" text="Valor unit." />
+            <TableColumn fx:id="valorVendido" prefWidth="114.0" text="Valor Vendido" />
+      <TableView fx:id="tabelaVendas" layoutX="516.0" layoutY="335.0" prefHeight="374.0" prefWidth="382.0">
       <Text layoutX="454.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="367.95849609375">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
+      <LineChart fx:id="graficovendas" layoutX="450.0" layoutY="8.0" prefHeight="289.0" prefWidth="500.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
    </children>
 </AnchorPane>

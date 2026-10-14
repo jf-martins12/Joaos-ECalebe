@@ -6,4 +6,14 @@ module com.example.joaosecalebe {
     exports com.example.joaosecalebe.Controller;
 
     exports com.example.joaosecalebe;
+
+    opens com.example.joaosecalebe.Controller to javafx.fxml;
+    exports com.example.joaosecalebe.Controller;
+
+    opens com.example.joaosecalebe.Model to javafx.fxml;
+    exports com.example.joaosecalebe.Model;
+
+    opens com.example.joaosecalebe.DataBase to javafx.fxml;
+    exports com.example.joaosecalebe.DataBase;
+
 }

@@ -1,10 +1,12 @@
 package com.example.joaosecalebe.Controller;
 
-import com.example.joaosecalebe.model.Venda;
+import com.example.joaosecalebe.Model.Venda;
 
 
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.BubbleChart;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -27,6 +29,12 @@ public class ControllerRelatorioVendas {
     private TableColumn<Venda, String> tamanho;
 
     @FXML
+    private TableColumn<Venda, Integer> quantidade;
+
+    @FXML
+    private TableColumn<Venda, String> fornecedor;
+
+    @FXML
     private TableColumn<Venda, Double> valorUnitario;
 
     @FXML
@@ -37,7 +45,13 @@ public class ControllerRelatorioVendas {
 
 
     @FXML
+    private LineChart<String, Number> graficovendas;
+
+
+    @FXML
     public void initialize() {
+
+
 
         produto.setCellValueFactory(
                 new PropertyValueFactory<>("produto")
@@ -45,6 +59,14 @@ public class ControllerRelatorioVendas {
 
         tamanho.setCellValueFactory(
                 new PropertyValueFactory<>("tamanho")
+        );
+
+        quantidade.setCellValueFactory(
+                new PropertyValueFactory<>("quantidade")
+        );
+
+        fornecedor.setCellValueFactory(
+                new PropertyValueFactory<>("fornecedor")
         );
 
         valorUnitario.setCellValueFactory(
@@ -57,31 +79,40 @@ public class ControllerRelatorioVendas {
 
 
         tabelaVendas.getItems().setAll(vendas);
-        System.out.println("vendas:"+vendas);
 
-        //criarGrafico(vendas);
+
+    criarGrafico(vendas);
+}
+
+
+
+
+
+    private void criarGrafico(ArrayList<Venda> vendas) {
+
+
+
+XYChart.Series<String, Number> serie =
+                        new XYChart.Series<>();
+
+        serie.setName("Vendas");
+
+       for (Venda venda : vendas) {
+
+serie.getData().add(
+                    new XYChart.Data<>(
+                            venda.getProduto(),
+                            venda.getQuantidade()
+                )
+        );
+
+
+
     }
+    graficovendas.getData().clear();
+    graficovendas.getData().add(serie);
 
 
-   // private void criarGrafico(ArrayList<Venda> vendas) {
-
-//XYChart.Series<String, Number> serie =
-                       // new XYChart.Series<>();
-
-        //serie.setName("Vendas");
-
-       // for (Venda venda : vendas) {
-
-           // serie.getData().add(
-                   // new XYChart.Data<>(
-                           // venda.getProduto(),
-                            //venda.getValorVendido()
-              //  )
-        //);
 
     }
-   // graficoVendas.getData().clear();
-    //graficoVendas.getData().add(serie);
-
-    //}
-//}
+    }
