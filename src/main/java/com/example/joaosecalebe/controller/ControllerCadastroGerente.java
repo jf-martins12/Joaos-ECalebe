@@ -1,4 +1,4 @@
-package com.example.joaosecalebe.controller;
+package com.example.joaosecalebe.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
