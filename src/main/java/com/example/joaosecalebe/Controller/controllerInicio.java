@@ -10,14 +10,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class controllerInicio {
-    public void Inicio(ActionEvent event) throws IOException {
-        trocarTela(event, "TelaCadastro");
 
-    }
-    private void trocarTela(ActionEvent event, String arquivo) throws IOException {
+    public void comecar(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(
-                getClass().getResource("/com/example/aula0909/view/" + arquivo)
+                getClass().getResource("/com/example/joaosecalebe/view/menu.fxml")
         );
 
         Stage stage = (Stage) ((Node) event.getSource())
@@ -27,5 +24,6 @@ public class controllerInicio {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
 }
 

@@ -1,5 +1,5 @@
 package com.example.joaosecalebe.Model;
-class compra {
+public class compra {
     private String produto;
     private int quantidade;
     private double preco;
@@ -15,14 +15,14 @@ class compra {
     public void setProduto(String produto){
         this.produto=produto;
     }
-     public int getQuantide(){
+    public int getQuantide(){
         return quantidade;
-     }
-     public void setQuantidade(String quantidadede){
+    }
+    public void setQuantidade(String quantidadede){
         this.quantidade=quantidade;
-     }
+    }
 
-     public void getPreco(Double preco){this.preco=preco;}
+    public void getPreco(Double preco){this.preco=preco;}
 
     public void setPreco(Double preco){this.preco=preco;}
 

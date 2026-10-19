@@ -6,8 +6,11 @@ import com.example.joaosecalebe.Model.Venda;
 
 import com.example.joaosecalebe.Model.Produto;
 import com.example.joaosecalebe.Model.Venda;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BancoDeDados {
 
@@ -18,11 +21,16 @@ public class BancoDeDados {
 
 
 
+    static {
+        vendas.add(new Venda(
+                "Camisa", "M", 90, "Nike", 130, 1.300));
 
+        vendas.add(new Venda(
+                "Calça", "40", 90, "Browns", 180, 1.800));
 
-
-    public static ArrayList <Produto> produtos=new ArrayList<>();
-
+        vendas.add(new Venda(
+                "Tenis", "41", 90, "Nike", 300, 30.000));
+    }
 }
 
 

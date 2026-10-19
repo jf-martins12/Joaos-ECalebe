@@ -1,6 +1,5 @@
 package com.example.joaosecalebe.Controller;
 
-import com.example.joaosecalebe.DataBase.BancoDeDados;
 import com.example.joaosecalebe.Model.Venda;
 
 
@@ -47,6 +46,9 @@ public class ControllerRelatorioVendas {
         double faturamento = 0;
         int quantidadeVenda = 0;
 
+        produto.setCellValueFactory(
+                new PropertyValueFactory<>("produto")
+        );
 
         for (Venda venda : BancoDeDados.vendas){
             faturamento += venda.getTotalfaturado();
@@ -60,10 +62,20 @@ public class ControllerRelatorioVendas {
         txtotalfaturado.setText(moeda.format(faturamento));
             txtotalvendas.setText(String.valueOf(quantidadeVenda));
 
+        fornecedor.setCellValueFactory(
+                new PropertyValueFactory<>("fornecedor")
+        );
+
+        valorUnitario.setCellValueFactory(
+                new PropertyValueFactory<>("valorUnitario")
+        );
+
+        valorVendido.setCellValueFactory(
+                new PropertyValueFactory<>("valorVendido")
+        );
 
 
-
-
+        tabelaVendas.getItems().setAll(vendas);
 
 
     criarGrafico(vendas);

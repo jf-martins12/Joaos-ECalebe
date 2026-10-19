@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.ControllerCadastroProduto">
    <children>
-      <AnchorPane layoutX="314.0" layoutY="56.0" prefHeight="588.0" prefWidth="338.0" style="-fx-background-color: lightgray;">
+      <AnchorPane layoutX="188.0" prefHeight="733.0" prefWidth="772.0" style="-fx-background-color: lightgray;">
          <children>
             <TextField fx:id="txtamanho" layoutX="95.0" layoutY="212.0" />
             <Button fx:id="cadastrar" layoutX="62.0" layoutY="488.0" mnemonicParsing="false" onAction="#btncadastrar" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: green;" text="Cadastrar" />
@@ -24,14 +24,14 @@
             <TextField fx:id="txcategoria" layoutX="94.0" layoutY="163.0" />
             <Text layoutX="35.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamanho:" wrappingWidth="56.220703125" />
             <Button fx:id="btnabrirestoque" layoutX="249.0" layoutY="542.0" mnemonicParsing="false" onAction="#btnabrirestoque" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: White;" text="Estoque" />
+            <TextField fx:id="txnome" layoutX="241.0" layoutY="141.0" />
+            <Text layoutX="293.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="39.220703125" />
          </children></AnchorPane>
       <Text layoutX="370.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro De Produto">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="txnome" layoutX="407.0" layoutY="168.0" />
-      <Text layoutX="351.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="39.220703125" />
       <Text layoutX="342.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" wrappingWidth="56.220703125" />
    </children>
 </AnchorPane>
