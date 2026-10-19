@@ -1,7 +1,7 @@
 package com.example.joaosecalebe;
 
 import com.example.joaosecalebe.DataBase.BancoDeDados;
-import com.example.joaosecalebe.Model.Venda;
+import com.example.joaosecalebe.model.Venda;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

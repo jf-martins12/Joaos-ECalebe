@@ -1,13 +1,10 @@
 package com.example.joaosecalebe.Controller;
 
-import com.example.joaosecalebe.Database.BancoDeDados;
+import com.example.joaosecalebe.DataBase.BancoDeDados;
 import com.example.joaosecalebe.Model.Cargo;
-import com.example.joaosecalebe.Model.Departamento;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import java.time.LocalDate;
 
 public class controllerCargo {
     @FXML

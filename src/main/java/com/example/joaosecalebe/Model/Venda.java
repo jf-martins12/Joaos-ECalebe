@@ -1,4 +1,4 @@
-package com.example.joaosecalebe.Model;
+package com.example.joaosecalebe.model;
 
     public class Venda {
 
@@ -27,6 +27,13 @@ package com.example.joaosecalebe.Model;
             return tamanho;
         }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public String getFornecedor() {
+        return fornecedor;
+    }
 
         public double getValorUnitario() {
             return valorUnitario;
