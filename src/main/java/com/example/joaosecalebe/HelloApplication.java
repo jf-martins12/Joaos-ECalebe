@@ -13,15 +13,9 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/Inicio.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/RelatorioVendas.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 963, 733);
-        BancoDeDados.vendas.add(new Venda("Camisa", "M", 200, "nike",300,100));
-        BancoDeDados.vendas.add(new Venda("Calça","40",150,"Browns",300,100));
-        BancoDeDados.vendas.add(new Venda("tenis","41", 400, "Nike",300,100));
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
-    }
+        }
 
     public static void main(String[] args) {
         launch();

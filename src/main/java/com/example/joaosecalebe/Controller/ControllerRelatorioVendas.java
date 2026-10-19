@@ -1,47 +1,35 @@
 package com.example.joaosecalebe.Controller;
 
+import com.example.joaosecalebe.DataBase.BancoDeDados;
 import com.example.joaosecalebe.Model.Venda;
 
 
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.BubbleChart;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import static com.example.joaosecalebe.DataBase.BancoDeDados.vendas;
 
 public class ControllerRelatorioVendas {
 
     @FXML
-    private TableView<Venda> tabelaVendas;
+    private Label txtotalfaturado;
 
     @FXML
-    private TableColumn<Venda, String> produto;
+    private Label txtotalvendas;
 
     @FXML
-    private TableColumn<Venda, String> tamanho;
+    private PieChart graficopagamento;
 
-    @FXML
-    private TableColumn<Venda, Integer> quantidade;
-
-    @FXML
-    private TableColumn<Venda, String> fornecedor;
-
-    @FXML
-    private TableColumn<Venda, Double> valorUnitario;
-
-    @FXML
-    private TableColumn<Venda, Double> valorVendido;
-
-    @FXML
-    private BarChart<String, Number> graficoVendas;
 
 
     @FXML
@@ -50,35 +38,31 @@ public class ControllerRelatorioVendas {
 
     @FXML
     public void initialize() {
+        atualizarRelatorio();
+        criarGraficoPagamentos();
+        }
+
+        private void atualizarRelatorio(){
+        double faturamento = 0;
+        int quantidadeVenda = 0;
+
+
+        for (Venda venda : BancoDeDados.vendas){
+            faturamento += venda.getTotalfaturado();
+            quantidadeVenda += venda.getTotalvendas();
+            }
+
+            NumberFormat moeda =
+                    NumberFormat.getCurrencyInstance(
+                         new Locale("pt", "BR")
+                    );
+        txtotalfaturado.setText(moeda.format(faturamento));
+            txtotalvendas.setText(String.valueOf(quantidadeVenda));
 
 
 
-        produto.setCellValueFactory(
-                new PropertyValueFactory<>("produto")
-        );
-
-        tamanho.setCellValueFactory(
-                new PropertyValueFactory<>("tamanho")
-        );
-
-        quantidade.setCellValueFactory(
-                new PropertyValueFactory<>("quantidade")
-        );
-
-        fornecedor.setCellValueFactory(
-                new PropertyValueFactory<>("fornecedor")
-        );
-
-        valorUnitario.setCellValueFactory(
-                new PropertyValueFactory<>("valorUnitario")
-        );
-
-        valorVendido.setCellValueFactory(
-                new PropertyValueFactory<>("valorVendido")
-        );
 
 
-        tabelaVendas.getItems().setAll(vendas);
 
 
     criarGrafico(vendas);
@@ -114,5 +98,15 @@ serie.getData().add(
 
 
 
+    }
+
+    private void criarGraficoPagamentos() {
+        graficopagamento.getData().clear();
+
+        graficopagamento.getData().addAll(
+                new PieChart.Data("Pix", 45),
+                new PieChart.Data("Cartão", 35),
+                new PieChart.Data("Dinheiro", 20)
+        );
     }
     }

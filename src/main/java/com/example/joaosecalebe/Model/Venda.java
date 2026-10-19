@@ -3,45 +3,35 @@ package com.example.joaosecalebe.Model;
 
 public class Venda {
 
+    private double totalfaturado;
+
+    private int totalvendas;
+
     private String produto;
-    private String tamanho;
+
     private int quantidade;
-    private double valorUnitario;
-    private double valorVendido;
-    private String fornecedor;
 
-    public Venda(String produto, String tamanho, int quantidade,
-                 String fornecedor, double valorUnitario, double valorVendido) {
+    public Venda(double totalfaturado, int totalvendas, String produto, int quantidade) {
 
-        this.produto = produto;
-        this.tamanho = tamanho;
+        this.totalfaturado = totalfaturado;
+        this.totalvendas = totalvendas;
         this.quantidade = quantidade;
-        this.fornecedor = fornecedor;
-        this.valorUnitario = valorUnitario;
-        this.valorVendido = valorVendido;
+        this.produto = produto;
+    }
+
+    public double getTotalfaturado() {
+        return totalfaturado;
+    }
+
+    public int getTotalvendas() {
+        return totalvendas;
     }
 
     public String getProduto() {
         return produto;
     }
 
-    public String getTamanho() {
-        return tamanho;
-    }
-
     public int getQuantidade() {
         return quantidade;
-    }
-
-    public String getFornecedor() {
-        return fornecedor;
-    }
-
-    public double getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public double getValorVendido() {
-        return quantidade * valorUnitario;
     }
 }
