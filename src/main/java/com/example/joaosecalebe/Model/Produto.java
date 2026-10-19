@@ -13,11 +13,10 @@ public class  Produto {
 
     private String fornecedor;
 
+    private String status;
 
 
-
-
-    public Produto(String tamanho, String nome, String categoria, double preço, int quantidade, long codigo,  String fornecedor) {
+    public Produto(String tamanho, String nome, String categoria, double preço, int quantidade, long codigo, String fornecedor) {
 
         this.nome = nome;
         this.codigo = codigo;
@@ -26,33 +25,45 @@ public class  Produto {
         this.categoria = categoria;
         this.quantidade = quantidade;
         this.preço = preço;
+        this.status = status;
 
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
-    public String getCategoria(){
+
+    public String getCategoria() {
         return categoria;
     }
 
-    public double getPreço(){
+    public double getPreço() {
         return preço;
     }
 
-    public int getQuantidade(){
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public long getCodigo(){
+    public long getCodigo() {
         return codigo;
     }
 
-    public String getTamanho(){
+    public String getTamanho() {
         return tamanho;
     }
 
-    public String getFornecedor(){
+    public String getFornecedor() {
         return fornecedor;
+    }
+
+    public String getStatus() {
+        if (quantidade <= 0) {
+            return "Esgotado";
+        } else if (quantidade <= 5) {
+            return "Stock baixo";
+        } else {
+            return "Disponível";
+        }
     }
 }
