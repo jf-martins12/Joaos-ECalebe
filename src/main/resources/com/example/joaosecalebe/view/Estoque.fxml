@@ -18,7 +18,7 @@
                   <Label fx:id="lbprodutoscadastrados" layoutX="14.0" layoutY="31.0" text="numero" />
                </children>
             </AnchorPane>
-            <TableView fx:id="TabelaEstoque" layoutX="8.0" layoutY="150.0" prefHeight="580.0" prefWidth="797.0">
+            <TableView fx:id="tabelaEstoque" layoutX="8.0" layoutY="150.0" prefHeight="580.0" prefWidth="797.0">
               <columns>
                 <TableColumn fx:id="colproduto" prefWidth="105.0" text="Produto" />
                 <TableColumn fx:id="colquantidade" prefWidth="99.0" text="Quantidade" />

@@ -93,9 +93,11 @@ public class ControllerEstoque {
                 new PropertyValueFactory<>("status")
         );
 
-        tabelaEstoque.setItems(
-                FXCollections.observableArrayList(BancoDeDados.produtos)
-        );
+        tabelaEstoque.getItems().clear();
+
+        for (Produto produto: BancoDeDados.produtos){
+            tabelaEstoque.getItems().add(produto);
+        }
 
         atualizarIndicadores();
     }
