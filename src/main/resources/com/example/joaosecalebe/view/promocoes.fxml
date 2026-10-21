@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.ControllerPromocoes">
+   <children>
+      <AnchorPane layoutX="153.0" prefHeight="733.0" prefWidth="810.0" style="-fx-background-color: lightgray;">
+         <children>
+            <Text layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aprovação de Promoçoẽs">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutY="49.0" prefHeight="4.0" prefWidth="810.0" style="-fx-background-color: white;" />
+            <Button fx:id="btnPendentes" layoutX="41.0" layoutY="95.0" mnemonicParsing="false" onAction="#Pendentes" style="-fx-background-color: #4682b4; -fx-background-radius: 8;" text="Pendentes" textFill="WHITE" />
+            <Button fx:id="bntRejeitadas" layoutX="218.0" layoutY="95.0" mnemonicParsing="false" onAction="#Rejeitadas" style="-fx-background-color: white; -fx-background-radius: 8;" text="Rejeitadas" />
+            <Button fx:id="btnAprovadas" layoutX="127.0" layoutY="95.0" mnemonicParsing="false" onAction="#Aprovadas" style="-fx-background-color: white; -fx-background-radius: 8;" text="Aprovadas" />
+            <TableView layoutY="164.0" prefHeight="541.0" prefWidth="582.0" style="-fx-background-color: lightgray;">
+              <columns>
+                <TableColumn fx:id="colProduto" prefWidth="111.0" text="Produto" />
+                <TableColumn fx:id="colPromocao" prefWidth="99.0" text="Promoção" />
+                  <TableColumn fx:id="colData" prefWidth="130.0" text="Data de solicitação" />
+                  <TableColumn fx:id="colResponsavel" minWidth="0.0" prefWidth="97.0" text="Responsavel" />
+                  <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="67.0" text="Status" />
+                  <TableColumn fx:id="colAcoes" minWidth="0.0" prefWidth="77.0" text="Açoẽs" />
+              </columns>
+            </TableView>
+            <TextField fx:id="txtpesquisar" layoutX="501.0" layoutY="83.0" prefHeight="25.0" prefWidth="221.0" promptText="Pesquisar produto..." />
+            <Button fx:id="btnPesquisar" layoutX="734.0" layoutY="83.0" mnemonicParsing="false" onAction="#pesquisarProduto" text="🔍" />
+            <AnchorPane layoutX="582.0" layoutY="162.0" prefHeight="571.0" prefWidth="229.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <children>
+                  <AnchorPane layoutX="11.0" layoutY="40.0" prefHeight="105.0" prefWidth="207.0" style="-fx-background-color: lightgray; -fx-background-radius: 10;">
+                     <children>
+                        <Text layoutX="96.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" wrappingWidth="70.0" />
+                        <Label fx:id="lblProduto" layoutX="105.0" layoutY="13.0" prefHeight="17.0" prefWidth="51.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="96.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marca:" wrappingWidth="70.0" />
+                        <Label fx:id="lblCategoria" layoutX="152.0" layoutY="48.0" text="Label" />
+                        <ImageView fitHeight="81.0" fitWidth="86.0" layoutX="4.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="lblMarca" layoutX="138.0" layoutY="68.0" text="Label" />
+                     </children>
+                  </AnchorPane>
+                  <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detalhes da promoção" wrappingWidth="136.541015625">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane layoutX="11.0" layoutY="155.0" prefHeight="120.0" prefWidth="207.0" style="-fx-background-color: lightgray; -fx-background-radius: 10;">
+                     <children>
+                        <Text layoutX="12.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desconto:" wrappingWidth="70.0" />
+                        <Text layoutX="11.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço original:" wrappingWidth="86.0" />
+                        <Text layoutX="11.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço promocional:" wrappingWidth="108.0" />
+                        <Text layoutX="12.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Periodo da promoção:" wrappingWidth="125.0" />
+                        <Label fx:id="lblDesconto" layoutX="68.0" layoutY="14.0" text="Label" />
+                        <Label fx:id="lblprecoOriginal" layoutX="90.0" layoutY="38.0" text="Label" />
+                        <Label fx:id="lblprecoPromocional" layoutX="118.0" layoutY="68.0" text="Label" />
+                        <Label fx:id="lblperiodoPromocao" layoutX="132.0" layoutY="93.0" text="Label" />
+                     </children>
+                  </AnchorPane>
+                  <Text layoutX="14.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Justificativa do solocitante" wrappingWidth="175.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="txtJustificativa" layoutX="8.0" layoutY="315.0" prefHeight="36.0" prefWidth="207.0" promptText="Justificativa..." />
+                  <Text layoutX="14.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Solicitante" wrappingWidth="175.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="11.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="👤" wrappingWidth="40.0">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="lblNome" layoutX="55.0" layoutY="387.0" text="Label" />
+                  <Label layoutX="98.0" layoutY="387.0" />
+                  <Label fx:id="lblData" layoutX="23.0" layoutY="417.0" text="Label" />
+                  <Button fx:id="btnAprovar" layoutX="18.0" layoutY="473.0" mnemonicParsing="false" onAction="#Aprovar" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: green; -fx-background-radius: 8;" text="✓ Aprovar" textFill="WHITE" />
+                  <Button fx:id="btnRejeitar" layoutX="123.0" layoutY="473.0" mnemonicParsing="false" onAction="#Rejeitar" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: red; -fx-background-radius: 8;" text=" ❌ Rejeitar" textFill="WHITE" />
+                  <Button fx:id="btnAddObs" layoutX="41.0" layoutY="524.0" mnemonicParsing="false" onAction="#AdicionarObservacao" text="💬 Adicionar Observação" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
