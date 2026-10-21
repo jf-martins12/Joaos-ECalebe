@@ -4,6 +4,7 @@ import com.example.joaosecalebe.DataBase.BancoDeDados;
 import com.example.joaosecalebe.Model.Venda;
 
 
+
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
