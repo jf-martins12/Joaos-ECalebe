@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<AnchorPane prefWidth="500.0" prefHeight="500.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.joaosecalebe.Controller.ControllerCadastroFuncionario">
+
+    <children>
+        <Label layoutX="35.0" layoutY="25.0"
+               text="Cadastrar funcionário"
+               style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+        <TextField fx:id="txNome"
+                   layoutX="35.0" layoutY="85.0"
+                   prefWidth="430.0"
+                   promptText="Nome completo"/>
+
+        <TextField fx:id="txCpf"
+                   layoutX="35.0" layoutY="140.0"
+                   prefWidth="430.0"
+                   promptText="CPF"/>
+
+        <TextField fx:id="txCargo"
+                   layoutX="35.0" layoutY="195.0"
+                   prefWidth="430.0"
+                   promptText="Cargo"/>
+
+        <TextField fx:id="txSalario"
+                   layoutX="35.0" layoutY="250.0"
+                   prefWidth="430.0"
+                   promptText="Salário"/>
+
+        <Button layoutX="35.0" layoutY="330.0"
+                prefWidth="200.0"
+                text="Confirmar"
+                onAction="#confirmar"/>
+
+        <Button layoutX="265.0" layoutY="330.0"
+                prefWidth="200.0"
+                text="Cancelar"
+                onAction="#cancelar"/>
+    </children>
+</AnchorPane>

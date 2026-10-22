@@ -5,16 +5,21 @@ import java.time.LocalDate;
 public class Funcionario {
     private String Nome;
     private String Cpf;
-
+    private String Cargo;
     private double Salario;
     private String Senha;
+
+    public String getNome() {
+        return Nome;
+    }
 
     public String getCpf() {
         return Cpf;
     }
-public String getNome(){
-        return Nome;
-}
+
+    public String getCargo() {
+        return Cargo;
+    }
 
     public double getSalario() {
         return Salario;
@@ -32,6 +37,10 @@ public String getNome(){
         Cpf = cpf;
     }
 
+    public void setCargo(String cargo) {
+        Cargo = cargo;
+    }
+
     public void setSalario(double salario) {
         Salario = salario;
     }
@@ -40,10 +49,11 @@ public String getNome(){
         Senha = senha;
     }
 
-    public Funcionario(String nome, String cpf, LocalDate data, double salario, String senha) {
-        this.Nome = nome;
-        this.Cpf = cpf;
-        this.Salario = salario;
-        this.Senha = senha;
+    public Funcionario(String nome, String cpf, String cargo, double salario, String senha) {
+        Nome = nome;
+        Cpf = cpf;
+        Cargo = cargo;
+        Salario = salario;
+        Senha = senha;
     }
 }

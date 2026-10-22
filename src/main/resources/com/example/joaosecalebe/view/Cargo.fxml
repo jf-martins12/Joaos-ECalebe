@@ -4,76 +4,75 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.view.Cargo">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.ControllerFuncionario">
+   <fx:include source="NavBar.fxml" />
+   <AnchorPane layoutX="151.0" layoutY="190.0" prefHeight="154.0" prefWidth="812.0" style="-fx-background-color: lightgray;">
+      <children>
+         <AnchorPane layoutX="80.0" layoutY="32.0" prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <children>
+               <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Text>
+               <Label fx:id="lbtotal" layoutX="14.0" layoutY="33.0" text="00">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Label>
+            </children>
+         </AnchorPane>
+         <AnchorPane layoutX="530.0" layoutY="32.0" prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <children>
+               <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="inativos">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Text>
+               <Label fx:id="lbinativos" layoutX="14.0" layoutY="33.0" text="00">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Label>
+            </children>
+         </AnchorPane>
+         <AnchorPane layoutX="306.0" layoutY="32.0" prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <children>
+               <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ativos">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Text>
+               <Label fx:id="lbativos" layoutX="14.0" layoutY="33.0" text="00">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Label>
+            </children>
+         </AnchorPane>
+         <Button fx:id="add" layoutX="771.0" layoutY="14.0" mnemonicParsing="false" onAction="#abrirCadastro" prefHeight="25.0" prefWidth="27.0" text="+">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutX="151.0" layoutY="352.0" prefHeight="381.0" prefWidth="812.0" style="-fx-background-color: lightgray;">
+      <children>
+         <TableView layoutY="63.0" prefHeight="318.0" prefWidth="812.0">
+           <columns>
+             <TableColumn fx:id="colNome" prefWidth="248.0" text="Fuincionarios" />
+             <TableColumn fx:id="colCargo" prefWidth="197.0" text="Cargo" />
+               <TableColumn fx:id="colSalario" prefWidth="191.0" text="Salario" />
+               <TableColumn fx:id="colCpf" prefWidth="175.0" text="CPF" />
+           </columns>
+         </TableView>
+      </children>
+   </AnchorPane>
    <children>
-      <Text layoutX="335.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de Cargos ">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Text>
-      <AnchorPane layoutX="-1.0" prefHeight="786.0" prefWidth="237.0" style="-fx-background-color: darkblue;" />
-      <Text layoutX="244.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Cargo : ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <TextField fx:id="txNome" layoutX="401.0" layoutY="83.0" prefHeight="25.0" prefWidth="222.0" />
-      <TextField fx:id="txSalarioma" layoutX="781.0" layoutY="83.0" prefHeight="25.0" prefWidth="216.0" />
-      <TextField fx:id="txSalariomi" layoutX="386.0" layoutY="187.0" prefHeight="25.0" prefWidth="237.0" />
-      <Text layoutX="244.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salario mínimo: ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text layoutX="633.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salario máximo :">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <TextField fx:id="txDepartamento" layoutX="772.0" layoutY="187.0" prefHeight="25.0" prefWidth="222.0" />
-      <Text layoutX="637.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departamento: ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Button fx:id="btnCadastrar" layoutX="386.0" layoutY="282.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: green;" text="Cadastrar ">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnLimpar" layoutX="585.0" layoutY="282.0" mnemonicParsing="false" onAction="#limpar" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #ff0000; -fx-background-color: light;" text="Limpar ">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnEditar" layoutX="772.0" layoutY="282.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: Blue;" text="Editar  ">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Label layoutX="236.0" layoutY="340.0" prefHeight="25.0" prefWidth="761.0" style="-fx-background-color: gray;" text="                                                                                                     Cargos Cadastrados " />
-      <TableView fx:id="tbCargos" layoutX="265.0" layoutY="365.0" prefHeight="178.0" prefWidth="703.0">
-        <columns>
-          <TableColumn fx:id="colNome" prefWidth="142.0" text="Nome" />
-          <TableColumn fx:id="colDepartamento" prefWidth="141.0" text="Departamento" />
-            <TableColumn fx:id="colSalariomi" prefWidth="188.0" text="Salário Mínimo " />
-            <TableColumn fx:id="colSalarioma" prefWidth="289.0" text="Salário Máximo " />
-        </columns>
-      </TableView>
-      <TableView fx:id="tbHistoricoSa" layoutX="265.0" layoutY="565.0" prefHeight="221.0" prefWidth="703.0">
-         <columns>
-            <TableColumn fx:id="colCargo" prefWidth="142.0" text="Cargo " />
-            <TableColumn fx:id="colSalarioa" prefWidth="132.0" text="Salário Anterior " />
-            <TableColumn fx:id="colNovoSalario" prefWidth="142.0" text="Novo Salário " />
-            <TableColumn fx:id="colData" prefWidth="145.0" text="Data" />
-            <TableColumn fx:id="colMotivo" prefWidth="145.0" text="Motivo " />
-         </columns>
-      </TableView>
-      <Label layoutX="243.0" layoutY="540.0" prefHeight="25.0" prefWidth="761.0" style="-fx-background-color: gray;" text="                                                                                              Hístorico Salárial " />
    </children>
 </AnchorPane>

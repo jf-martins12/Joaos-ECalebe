@@ -38,7 +38,7 @@ public class ControllerMenu {
         int totalEstoque = 0;
 
         for (Venda venda : BancoDeDados.vendas) {
-            receita += venda.getValorVendido();
+            receita += venda.getVendatotal();
         }
 
         for (Produto produto : BancoDeDados.produtos) {
@@ -71,7 +71,7 @@ public class ControllerMenu {
             serie.getData().add(
                     new XYChart.Data<>(
                             venda.getProduto(),
-                            venda.getValorVendido()
+                            venda.getVendatotal()
                     )
             );
         }
