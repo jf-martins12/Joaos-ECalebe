@@ -20,7 +20,7 @@
               <Font size="16.0" />
           </font>
       </Text>
-      <Button fx:id="btnCadastrar" layoutX="584.0" layoutY="397.0" mnemonicParsing="false" onAction="#irparamenu" prefHeight="34.0" prefWidth="287.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="CONFIRMAR" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
+      <Button fx:id="btnCadastrar" layoutX="584.0" layoutY="397.0" mnemonicParsing="false" onAction="#Confirmar" prefHeight="34.0" prefWidth="287.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="CONFIRMAR" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
       <Button layoutX="876.0" layoutY="448.0" mnemonicParsing="false" onAction="#limpar" style="-fx-background-color: black; -fx-background-radius: 30;" text="limpar" textFill="WHITE" />
       <Text layoutX="463.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
           <font>

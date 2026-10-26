@@ -42,8 +42,8 @@ public class controllerTelaCadastro {
         txSenha.clear();
     }
 
-    public void Cadastrar() {
-        String Nome = txNome.getText();
+    public void Confirmar() {
+
         String Cpf = txCpf.getText();
         String Email = txEmail.getText();
         String Telefone = txTelefone.getText();
