@@ -30,21 +30,69 @@ public class ControllerCadastroFuncionario {
     @FXML
     private TextField txSalario;
 
+    private Funcionario funcionarioEditando = null;
+
     @FXML
-    private void confirmar(ActionEvent event) throws IOException {
+    public void initialize() {
+
+        txCpf.textProperty().addListener((obs, antigo, novo) -> {
+
+                    String cpf = novo.replaceAll("\\D", "");
+
+                    if (cpf.length() > 11) {
+                        cpf = cpf.substring(0, 11);
+                    }
+
+                    StringBuilder formatado = new StringBuilder(cpf);
+
+                    if (cpf.length() > 9) {
+                        formatado.insert(9, "-");
+                    }
+
+                    if (cpf.length() > 6) {
+                        formatado.insert(6, ".");
+                    }
+
+                    if (cpf.length() > 3) {
+                        formatado.insert(3, ".");
+                    }
+
+                    String resultado = formatado.toString();
+
+                    if (!novo.equals(resultado)) {
+                        txCpf.setText(resultado);
+                        txCpf.positionCaret(resultado.length());
+                    }
+                }
+        );
+    }
+
+    public void prepararEdicao(Funcionario funcionario) {
+        funcionarioEditando = funcionario;
+
+        txNome.setText(funcionario.getNome());
+        txCpf.setText(funcionario.getCpf());
+        txCargo.setText(funcionario.getCargo());
+        txSalario.setText(
+                String.valueOf(funcionario.getSalario())
+        );
+    }
+
+    @FXML
+    private void confirmar(ActionEvent event) {
 
         String nome = txNome.getText().trim();
         String cpf = txCpf.getText().trim();
         String cargo = txCargo.getText().trim();
+        String textoSalario = txSalario.getText().trim();
 
         if (nome.isEmpty() || cpf.isEmpty()
-                || cargo.isEmpty()
-                || txSalario.getText().trim().isEmpty()) {
+                || cargo.isEmpty() || textoSalario.isEmpty()) {
 
             mostrarAlerta(
                     Alert.AlertType.WARNING,
-                    "Atenção",
-                    "Preencha todos os campos."
+                    "Informações incompletas",
+                    "Preencha todos os dados."
             );
             return;
         }
@@ -53,74 +101,90 @@ public class ControllerCadastroFuncionario {
 
         try {
             salario = Double.parseDouble(
-                    txSalario.getText().trim().replace(",", ".")
+                    textoSalario.replace("", "")
             );
         } catch (NumberFormatException e) {
-            mostrarAlerta(
-                    Alert.AlertType.ERROR,
-                    "Salário inválido",
-                    "Digite um salário válido. Exemplo: 2500,00"
-            );
+
             return;
         }
 
-        if (salario < 0) {
+        if (salario <= 0) {
             mostrarAlerta(
                     Alert.AlertType.WARNING,
                     "Atenção",
-                    "O salário não pode ser negativo."
+                    "O salário deve ser maior que zero."
             );
             return;
         }
 
         for (Funcionario funcionario : BancoDeDados.funcionarios) {
-            if (funcionario.getCpf().equals(cpf)) {
+
+            if (funcionario.getCpf().equals(cpf)
+                    && funcionario != funcionarioEditando) {
+
                 mostrarAlerta(
                         Alert.AlertType.WARNING,
-                        "CPF já cadastrado",
-                        "Já existe um funcionário com esse CPF."
+                        "CPF duplicado",
+                        "Já existe outro funcionário com esse CPF."
                 );
                 return;
             }
         }
 
-        // Mantém o construtor atual do seu model.
-        Funcionario funcionario = new Funcionario(
-                nome, cpf, cargo, salario, ""
-        );
+        if (funcionarioEditando != null) {
 
-        BancoDeDados.funcionarios.add(funcionario);
+            funcionarioEditando.setNome(nome);
+            funcionarioEditando.setCpf(cpf);
+            funcionarioEditando.setCargo(cargo);
+            funcionarioEditando.setSalario(salario);
 
-        mostrarAlerta(
-                Alert.AlertType.INFORMATION,
-                "Cadastro concluído",
-                "Funcionário cadastrado com sucesso!"
-        );
+        } else {
+
+            Funcionario novoFuncionario = new Funcionario(
+                    nome,
+                    cpf,
+                    cargo,
+                    salario,
+                    "Ativo"
+            );
+
+            BancoDeDados.funcionarios.add(novoFuncionario);
+        }
 
         voltarParaFuncionarios(event);
     }
 
     @FXML
-    private void cancelar(ActionEvent event) throws IOException {
+    private void cancelar(ActionEvent event) {
         voltarParaFuncionarios(event);
     }
 
-    private void voltarParaFuncionarios(ActionEvent event)
-            throws IOException {
+    private void voltarParaFuncionarios(ActionEvent event) {
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource(
-                        "/com/example/joaosecalebe/view/MenuFuncionario.fxml"
-                )
-        );
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/com/example/joaosecalebe/view/Cargo.fxml"
+                    )
+            );
 
-        Parent tela = loader.load();
+            Parent tela = loader.load();
 
-        Stage janela = (Stage) ((Node) event.getSource())
-                .getScene().getWindow();
+            ControllerFuncionario controller =
+                    loader.getController();
 
-        janela.setScene(new Scene(tela));
-        janela.show();
+            controller.atualizarTabela();
+
+            Stage janela = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+
+            janela.setScene(new Scene(tela));
+            janela.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
     }
 
     private void mostrarAlerta(

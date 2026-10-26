@@ -103,7 +103,6 @@ public class ControllerRelatorioVendas {
 
         serie.setName("Faturamento em reais");
 
-        // Agrupa o faturamento de cada produto.
         Map<String, Double> faturamentoPorProduto =
                 new LinkedHashMap<>();
 

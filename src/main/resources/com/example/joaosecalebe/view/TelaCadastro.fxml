@@ -47,6 +47,6 @@
       </children>
    </AnchorPane>
    <Button fx:id="btnesqueceu" layoutX="802.0" layoutY="301.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: white;" text="esqueceu a senha ? " textFill="#00bfff" />
-   <PasswordField layoutX="515.0" layoutY="330.0" prefHeight="34.0" prefWidth="411.0" promptText="sua senha " />
+   <PasswordField fx:id="txSenha" layoutX="515.0" layoutY="330.0" prefHeight="34.0" prefWidth="411.0" promptText="sua senha " />
 
 </AnchorPane>

@@ -5,6 +5,9 @@ module com.example.joaosecalebe {
     opens com.example.joaosecalebe.Controller to javafx.fxml;
     exports com.example.joaosecalebe.Controller;
 
+    opens com.example.joaosecalebe.Model to javafx.fxml;
+    exports com.example.joaosecalebe.Model;
+
     exports com.example.joaosecalebe;
 
 }

@@ -14,7 +14,7 @@ public class controllerInicio {
     public void comecar(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(
-                getClass().getResource("/com/example/joaosecalebe/view/TelaCadatro.fxml")
+                getClass().getResource("/com/example/joaosecalebe/view/TelaCadastro.fxml")
         );
 
         Stage stage = (Stage) ((Node) event.getSource())

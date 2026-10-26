@@ -82,10 +82,10 @@
             <NumberAxis side="LEFT" />
         </yAxis>
     </LineChart>
-    <TableView layoutX="641.0" layoutY="110.0" prefHeight="383.0" prefWidth="322.0">
+    <TableView fx:id="tabelaFuncionarios" layoutX="641.0" layoutY="110.0" prefHeight="383.0" prefWidth="322.0">
         <columns>
-            <TableColumn prefWidth="257.0" text="Funcionarios" />
-            <TableColumn prefWidth="64.0" text="Ativo" />
+            <TableColumn fx:id="colFuncionarios" prefWidth="257.0" text="Funcionarios" />
+            <TableColumn fx:id="colStatus" prefWidth="64.0" text="Ativo" />
         </columns>
     </TableView>
     <children>
