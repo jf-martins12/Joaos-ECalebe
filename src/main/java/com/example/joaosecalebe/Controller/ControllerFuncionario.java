@@ -30,6 +30,7 @@ public class ControllerFuncionario {
     @FXML
     private Label lbCargos;
 
+    @FXML private TableView tbFuncionarios;
     @FXML
     private Label lbFolhaSalarial;
 
