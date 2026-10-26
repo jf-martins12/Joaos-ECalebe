@@ -79,4 +79,5 @@ public class Promocao {
     public void setStatus(String status) {
         this.status = status;
     }
+    public void setJustificativa(String justificativa) { this.justificativa = justificativa;}
 }
