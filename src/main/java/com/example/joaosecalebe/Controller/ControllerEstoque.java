@@ -4,15 +4,18 @@ import com.example.joaosecalebe.DataBase.BancoDeDados;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import com.example.joaosecalebe.Model.Produto;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.Optional;
 
 public class ControllerEstoque {
 
@@ -131,6 +134,90 @@ public class ControllerEstoque {
         lbvalorestoque.setText(
                 moeda.format(valorEstoque)
         );
+    }
+
+    @FXML
+    public void EditarProduto() {
+        Produto produtoSelecionado = tabelaEstoque.getSelectionModel().getSelectedItem();
+
+        if (produtoSelecionado == null) {
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Atenção");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Selecione um produto para editar!");
+            alerta.showAndWait();
+            return;
+        }
+
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Editar Produto");
+        alerta.setHeaderText("Produto selecionado");
+        alerta.setContentText("Produto: " + produtoSelecionado.getNome());
+        alerta.showAndWait();
+    }
+
+    @FXML
+    public void AdicionarProduto() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/com/example/joaosecalebe/view/CadastroVenda.fxml"
+                    )
+            );
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) tabelaEstoque.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    public void ExcluirProduto() {
+        Produto produtoSelecionado = tabelaEstoque.getSelectionModel().getSelectedItem();
+
+        if (produtoSelecionado == null) {
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Atenção");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Selecione um produto para excluir!");
+            alerta.showAndWait();
+            return;
+        }
+
+        Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacao.setTitle("Excluir Produto");
+        confirmacao.setHeaderText("Deseja excluir este produto?");
+        confirmacao.setContentText("Produto: " + produtoSelecionado.getNome());
+
+        Optional<ButtonType> resposta = confirmacao.showAndWait();
+
+        if (resposta.isPresent() && resposta.get() == ButtonType.OK) {
+            BancoDeDados.produtos.remove(produtoSelecionado);
+            tabelaEstoque.getItems().remove(produtoSelecionado);
+
+            atualizarIndicadores();
+
+            Alert sucesso = new Alert(Alert.AlertType.INFORMATION);
+            sucesso.setTitle("Sucesso");
+            sucesso.setHeaderText(null);
+            sucesso.setContentText("Produto excluído com sucesso!");
+            sucesso.showAndWait();
+        }
+    }
+    public void atualizarTabela() {
+        tabelaEstoque.getItems().clear();
+
+        for (Produto produto : BancoDeDados.produtos) {
+            tabelaEstoque.getItems().add(produto);
+        }
+
+        atualizarIndicadores();
     }
 }
 

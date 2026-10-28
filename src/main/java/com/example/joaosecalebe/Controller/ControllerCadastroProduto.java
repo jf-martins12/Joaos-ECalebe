@@ -82,22 +82,19 @@ public class ControllerCadastroProduto {
         );
         BancoDeDados.produtos.add(produto);
 
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Cadastro Concluído");
-        alert.setHeaderText("Produto cadastrado com sucesso!");
-
-        alert.setContentText(
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Cadastro concluído");
+        alerta.setHeaderText("Produto cadastrado com sucesso!");
+        alerta.setContentText(
                 "Nome: " + nome +
                         "\nCategoria: " + categoria +
                         "\nTamanho: " + tamanho +
                         "\nPreço: R$ " + preço +
                         "\nQuantidade: " + quantidade +
                         "\nCódigo: " + codigo +
-                        "\nFornecedor: " + fornecedor
-        );
+                        "\nFornecedor: " + fornecedor );
 
-        alert.showAndWait();
+       alerta.showAndWait();
 
         btnlimpar();
 
@@ -113,6 +110,15 @@ public class ControllerCadastroProduto {
         txpreço.clear();
         txfornecedor.clear();
         txquantidade.clear();
+
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Campos limpos");
+        alerta.setHeaderText(null);
+        alerta.setContentText("Todos os campos foram limpos!");
+        alerta.showAndWait();
+
+
+
     }
 
 
