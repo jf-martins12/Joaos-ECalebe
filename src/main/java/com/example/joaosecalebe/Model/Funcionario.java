@@ -9,6 +9,16 @@ public class Funcionario {
     private double Salario;
     private String Senha;
 
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getNome() {
         return Nome;
     }

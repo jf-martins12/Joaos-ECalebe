@@ -8,13 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class controllerInicio {
 
     public void comecar(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(
-                getClass().getResource("/com/example/joaosecalebe/view/TelaCadatro.fxml")
+                getClass().getResource("/com/example/joaosecalebe/view/TelaCadastro.fxml")
         );
 
         Stage stage = (Stage) ((Node) event.getSource())

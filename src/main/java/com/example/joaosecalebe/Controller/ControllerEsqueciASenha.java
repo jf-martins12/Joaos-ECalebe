@@ -1,24 +1,26 @@
+
 package com.example.joaosecalebe.Controller;
 
+import com.example.joaosecalebe.DataBase.DadosLogin;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 public class ControllerEsqueciASenha {
-    @FXML
-    TextField txemail;
-    @FXML
-    TextField txnovasenha;
-    @FXML
-    TextField txconfirmarsenha;
-    @FXML
-    Button btnconfirmar;
-    @FXML
-    Button btnlimpar;
-    @FXML
-    Button btneditar;
 
+    @FXML
+    private TextField txemail;
+
+    @FXML
+    private TextField txnovasenha;
+
+    @FXML
+    private TextField txconfirmarsenha;
 
     @FXML
     public void limpar() {
@@ -28,34 +30,63 @@ public class ControllerEsqueciASenha {
     }
 
 
+    @FXML
     public void confirmar() {
 
-
+        String email = txemail.getText().trim();
         String senha = txnovasenha.getText();
-        String email = txemail.getText();
-        String confirmarsenha = txconfirmarsenha.getText();
+        String confirmarSenha = txconfirmarsenha.getText();
 
-        if (email.equals("")) {
+        if (email.isEmpty() || senha.isEmpty()
+                || confirmarSenha.isEmpty()) {
 
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Digite seu email");
-            alert.showAndWait();
+            mostrarAlerta(Alert.AlertType.ERROR,
+                    "Preencha todos os campos");
             return;
         }
 
-        if (!senha.equals(confirmarsenha)) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("As senhas não são iguais");
-            alert.showAndWait();
+        if (!email.equalsIgnoreCase(DadosLogin.email.trim())) {
+            mostrarAlerta(Alert.AlertType.ERROR,
+                    "Email não cadastrado");
             return;
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setContentText("A sua senha foi trocada ");
+
+        if (!senha.equals(confirmarSenha)) {
+            mostrarAlerta(Alert.AlertType.ERROR,
+                    "As senhas não são iguais");
+            return;
+        }
+
+        DadosLogin.senha = senha;
+
+        mostrarAlerta(Alert.AlertType.INFORMATION,
+                "Senha alterada com sucesso!");
+
+        try {
+            Parent root = FXMLLoader.load(
+                    getClass().getResource(
+                            "/com/example/joaosecalebe/view/TelaCadastro.fxml"
+                    )
+            );
+
+            Stage stage = (Stage) txemail.getScene()
+                    .getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void mostrarAlerta(
+            Alert.AlertType tipo, String mensagem) {
+
+        Alert alert = new Alert(tipo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
         alert.showAndWait();
-        return;
-
-
     }
 }
-
