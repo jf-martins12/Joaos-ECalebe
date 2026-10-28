@@ -138,7 +138,6 @@ public class ControllerRelatorioVendas {
 
         graficopagamento.getData().clear();
 
-        // Valores demonstrativos: ainda não vêm do BancoDeDados.
         graficopagamento.getData().addAll(
                 new PieChart.Data("Pix", 45),
                 new PieChart.Data("Cartão", 35),
