@@ -88,7 +88,7 @@ public class ControllerPromocoes {
                 new PropertyValueFactory<>("status"));
     }
 
-    private void atualizarTabela(ArrayList<Promocao> promocaos) {
+    private void AtualizarTabela(ArrayList<Promocao> promocaos) {
         Tabelapromocao.getItems().setAll(promocaos);
     }
 
@@ -137,13 +137,17 @@ public class ControllerPromocoes {
         filtrarStatus("Rejeitada");
     }
 
+    private void atualizarTabela(ArrayList<Promocao> promocoes) {
+        Tabelapromocao.getItems().setAll(promocoes);
+    }
+
     private void filtrarStatus(String status) {
 
         ArrayList<Promocao> filtradas = new ArrayList<>();
 
         for (Promocao promocao : BancoDeDados.promocaos) {
 
-            if (promocao.getStatus().equalsIgnoreCase(status)) ;
+            if (promocao.getStatus().equalsIgnoreCase(status))
             {
                 filtradas.add(promocao);
             }
@@ -196,7 +200,7 @@ public class ControllerPromocoes {
         limparDetalhes();
     }
 
-    public void adicionarObservacao() {
+    public void AdicionarObservacao() {
 
         if (promocaoSelecionada == null) {
             mostrarAviso("Selecione uma promoção");
