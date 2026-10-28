@@ -98,7 +98,7 @@ public class controllerTelaCadastro {
                    // "E-mail incorreto",
                    // "Digite o e-mail correto"
            // );
-        } else if (senha.equals(senhaCorreta)) {
+       // } else if (senha.equals(senhaCorreta)) {
 
             Parent root = FXMLLoader.load(
                     getClass().getResource(
