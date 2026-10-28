@@ -154,7 +154,33 @@ public class ControllerEstoque {
         alerta.setHeaderText("Produto selecionado");
         alerta.setContentText("Produto: " + produtoSelecionado.getNome());
         alerta.showAndWait();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/com/example/joaosecalebe/view/CadastroVenda.fxml"
+                    )
+            );
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) tabelaEstoque.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Erro");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Não foi possível abrir a tela de edição.");
+            alerta.showAndWait();
+        }
     }
+
+
+
 
     @FXML
     public void AdicionarProduto() {
