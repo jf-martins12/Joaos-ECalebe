@@ -1,49 +1,59 @@
 package com.example.joaosecalebe.Model;
 
-import java.time.LocalDate;
-
 public class Funcionario {
-    private String Nome;
-    private String Cpf;
 
-    private double Salario;
-    private String Senha;
+    private String nome;
+    private String cpf;
+    private String cargo;
+    private double salario;
+    private String status;
 
-    public String getCpf() {
-        return Cpf;
+    public Funcionario(String nome, String cpf, String cargo,
+                       double salario, String status) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.cargo = cargo;
+        this.salario = salario;
+        this.status = status;
     }
-public String getNome(){
-        return Nome;
-}
 
-    public double getSalario() {
-        return Salario;
-    }
-
-    public String getSenha() {
-        return Senha;
+    public String getNome() {
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public void setCpf(String cpf) {
-        Cpf = cpf;
+        this.cpf = cpf;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public double getSalario() {
+        return salario;
     }
 
     public void setSalario(double salario) {
-        Salario = salario;
+        this.salario = salario;
     }
 
-    public void setSenha(String senha) {
-        Senha = senha;
+    public String getStatus() {
+        return status;
     }
 
-    public Funcionario(String nome, String cpf, LocalDate data, double salario, String senha) {
-        this.Nome = nome;
-        this.Cpf = cpf;
-        this.Salario = salario;
-        this.Senha = senha;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

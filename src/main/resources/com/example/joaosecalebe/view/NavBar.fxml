@@ -2,13 +2,20 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="navbar" prefHeight="733.0" prefWidth="151.0" style="-fx-background-color: #4682b4;"
-            xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.joaosecalebe.Controller.controllerNavBar">
+<AnchorPane fx:id="navbar" prefHeight="733.0" prefWidth="151.0" style="-fx-background-color: #4682b4;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.controllerNavBar">
 
     <children>
-        <Button layoutX="25.0" layoutY="30.0" mnemonicParsing="false" onAction="#irParaInicio" prefHeight="38.0"
-                prefWidth="102.0" text="INICIO"/>
+        <Button layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#irmenu" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="dashboard" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="12.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="209.0" mnemonicParsing="false" onAction="#irrelatorios" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="relatorios" textFill="WHITE" />
+      <Button layoutX="14.0" layoutY="258.0" mnemonicParsing="false" onAction="#irestoque" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="estoque" textFill="WHITE" />
+      <Button layoutX="14.0" layoutY="303.0" mnemonicParsing="false" onAction="#irfuncionarios" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="funcionarios " textFill="WHITE" />
+      <Button layoutX="16.0" layoutY="352.0" mnemonicParsing="false" onAction="#irpromocoes" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="promoções" textFill="WHITE" />
+      <Button layoutX="16.0" layoutY="398.0" mnemonicParsing="false" onAction="#irconfiguracoes" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="configurações" textFill="WHITE" />
+      <Button layoutX="14.0" layoutY="443.0" mnemonicParsing="false" onAction="#Sair" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Sair" textFill="WHITE" />
     </children>
 </AnchorPane>

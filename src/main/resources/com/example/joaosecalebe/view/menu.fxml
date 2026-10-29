@@ -1,15 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
+<AnchorPane prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.ControllerMenu">
+    <fx:include source="NavBar.fxml" />
+    <fx:include source="perfil.fxml" />
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
-    <fx:include source="NavBar.fxml"
-                AnchorPane.leftAnchor="0.0"
-                AnchorPane.topAnchor="0.0"
-                AnchorPane.bottomAnchor="0.0"/>
-   <children>
-      <Button layoutX="14.0" layoutY="688.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Button" textFill="WHITE" />
-   </children>
+    <AnchorPane layoutX="151.0" layoutY="494.0" prefHeight="240.0" prefWidth="812.0" style="-fx-background-color: lightgray;">
+        <children>
+            <AnchorPane fx:id="card" layoutX="33.0" layoutY="53.0" prefHeight="135.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                <children>
+                    <Label layoutX="24.0" layoutY="14.0" text="Receita de vendas">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lblReceita" layoutX="14.0" layoutY="50.0" prefHeight="36.0" prefWidth="241.0" text="8.400">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="card1" layoutX="306.0" layoutY="53.0" prefHeight="135.0" prefWidth="241.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                <children>
+                    <Label layoutX="24.0" layoutY="14.0" text="Vendas realizadas">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                    </Label>
+                    <Text layoutX="24.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                    </Text>
+                    <Label fx:id="lblTotalVendas" layoutX="24.0" layoutY="49.0" text="124">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="card11" layoutX="567.0" layoutY="53.0" prefHeight="135.0" prefWidth="241.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                <children>
+                    <Label layoutX="24.0" layoutY="14.0" text="estoque">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                    </Label>
+                    <Text fill="WHITE" layoutX="24.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                    </Text>
+                    <Label fx:id="lblEstoque" layoutX="24.0" layoutY="50.0" text="12">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                    <Text layoutX="60.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="produtos">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                    </Text>
+                </children>
+            </AnchorPane>
+        </children>
+    </AnchorPane>
+    <LineChart fx:id="graficoVendas" layoutX="151.0" layoutY="196.0" prefHeight="314.0" prefWidth="500.0">
+        <xAxis>
+            <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis side="LEFT" />
+        </yAxis>
+    </LineChart>
+    <TableView fx:id="tblFuncionarios" layoutX="641.0" layoutY="207.0" prefHeight="286.0" prefWidth="322.0">
+        <columns>
+            <TableColumn fx:id="colFuncionario" prefWidth="257.0" text="Funcionarios" />
+            <TableColumn fx:id="colStatus" prefWidth="64.0" text="Ativo" />
+        </columns>
+    </TableView>
+   <AnchorPane layoutX="151.0" layoutY="128.0" prefHeight="68.0" prefWidth="812.0" style="-fx-background-color: lightgray;" />
+    <children>
+
+        <AnchorPane layoutX="151.0" layoutY="0.0" prefHeight="733.0" prefWidth="812.0">
+
+        </AnchorPane>
+
+    </children>
 </AnchorPane>
