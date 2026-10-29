@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -41,16 +42,16 @@ public class ControllerCadastroProduto {
     private TextField txcodigo;
 
     @FXML
-    private TextField txtamanho;
+    private ComboBox<String> cbTamanho;
 
     @FXML
-    private TextField txfornecedor;
+    private ComboBox<String> cbFornecedor;
 
     @FXML
     private TextField txpreço;
 
     @FXML
-    private TextField txcategoria;
+    private ComboBox<String> cbCategoria;
 
     @FXML
     private Button btncadastrar;
@@ -58,65 +59,144 @@ public class ControllerCadastroProduto {
     @FXML
     private Button btnlimpar;
 
+
+
+
     @FXML
-    public void btncadastrar(){
+    public void initialize() {
+
+        cbCategoria.getItems().addAll(
+                "Camiseta", "Calça", "Bermuda",
+                "Moletom", "Jaqueta", "Tênis", "Acessórios"
+        );
+
+        cbTamanho.getItems().addAll(
+                "PP", "P", "M", "G", "GG",
+                "38", "39", "40", "41", "42", "Único"
+        );
+
+        cbFornecedor.getItems().addAll(
+                "Nike", "Adidas", "Puma", "Browns"
+        );
+    }
+
+    @FXML
+    public void btncadastrar() {
 
         String nome = txnome.getText();
-        String tamanho = txtamanho.getText();
-        String categoria = txcategoria.getText();
-        double preço = Double.parseDouble(txpreço.getText());
-        int quantidade = Integer.parseInt(txquantidade.getText());
-        long codigo = Long.parseLong(txcodigo.getText());
-        String fornecedor = txfornecedor.getText();
+        String categoria = cbCategoria.getValue();
+        String tamanho = cbTamanho.getValue();
+        String fornecedor = cbFornecedor.getValue();
 
+        try {
+            double preço = Double.parseDouble(txpreço.getText());
+            int quantidade = Integer.parseInt(txquantidade.getText());
+            long codigo = Long.parseLong(txcodigo.getText());
 
-        Produto produto = new Produto(
+            boolean editando = produtoEditando != null;
 
-                nome,
-                categoria,
-                tamanho,
-                preço,
-                quantidade,
-                codigo,
-                fornecedor
-        );
-        BancoDeDados.produtos.add(produto);
+            if (editando == false) {
 
+                Produto produto = new Produto(
+                        nome,
+                        categoria,
+                        tamanho,
+                        preço,
+                        quantidade,
+                        codigo,
+                        fornecedor
+                );
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Cadastro Concluído");
-        alert.setHeaderText("Produto cadastrado com sucesso!");
+                BancoDeDados.produtos.add(produto);
 
-        alert.setContentText(
-                "Nome: " + nome +
-                        "\nCategoria: " + categoria +
-                        "\nTamanho: " + tamanho +
-                        "\nPreço: R$ " + preço +
-                        "\nQuantidade: " + quantidade +
-                        "\nCódigo: " + codigo +
-                        "\nFornecedor: " + fornecedor
-        );
+            } else {
 
-        alert.showAndWait();
+                produtoEditando.setNome(nome);
+                produtoEditando.setCategoria(categoria);
+                produtoEditando.setTamanho(tamanho);
+                produtoEditando.setPreço(preço);
+                produtoEditando.setQuantidade(quantidade);
+                produtoEditando.setCodigo(codigo);
+                produtoEditando.setFornecedor(fornecedor);
 
-        btnlimpar();
+                produtoEditando = null;
+            }
 
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+
+            if (editando) {
+                alerta.setTitle("Edição concluída");
+                alerta.setHeaderText("Produto editado com sucesso!");
+            } else {
+                alerta.setTitle("Cadastro concluído");
+                alerta.setHeaderText("Produto cadastrado com sucesso!");
+            }
+
+            alerta.setContentText(
+                    "Nome: " + nome +
+                            "\nCategoria: " + categoria +
+                            "\nTamanho: " + tamanho +
+                            "\nPreço: R$ " + preço +
+                            "\nQuantidade: " + quantidade +
+                            "\nCódigo: " + codigo +
+                            "\nFornecedor: " + fornecedor
+            );
+
+            alerta.showAndWait();
+
+            btnlimpar();
+
+        } catch (NumberFormatException e) {
+
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Erro");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Confira o preço, a quantidade e o código.");
+            alerta.showAndWait();
+        }
     }
+
+
+
 
     @FXML
     private void btnlimpar(){
 
         txnome.clear();
-        txcategoria.clear();
-        txtamanho.clear();
+        cbCategoria.getSelectionModel().clearSelection();
+        cbTamanho.getSelectionModel().clearSelection();
         txcodigo.clear();
         txpreço.clear();
-        txfornecedor.clear();
+        cbFornecedor.getSelectionModel().clearSelection();
         txquantidade.clear();
+
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Campos limpos");
+        alerta.setHeaderText(null);
+        alerta.setContentText("Todos os campos foram limpos!");
+        alerta.showAndWait();
+
+
+
     }
 
 
+    private Produto produtoEditando;
 
+    public void setProdutoParaEditar(Produto produto) {
+        produtoEditando = produto;
+
+        txnome.setText(produto.getNome());
+        cbCategoria.setValue(produto.getCategoria());
+        cbTamanho.setValue(produto.getTamanho());
+        txpreço.setText(String.valueOf(produto.getPreço()));
+        txquantidade.setText(String.valueOf(produto.getQuantidade()));
+        txcodigo.setText(String.valueOf(produto.getCodigo()));
+        cbFornecedor.setValue(produto.getFornecedor());
+
+
+
+    }
 }
 
 

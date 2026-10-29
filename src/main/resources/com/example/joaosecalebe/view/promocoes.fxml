@@ -23,7 +23,7 @@
             <Button fx:id="btnPendentes" layoutX="41.0" layoutY="95.0" mnemonicParsing="false" onAction="#Pendentes" style="-fx-background-color: #4682b4; -fx-background-radius: 8;" text="Pendentes" textFill="WHITE" />
             <Button fx:id="bntRejeitadas" layoutX="218.0" layoutY="95.0" mnemonicParsing="false" onAction="#Rejeitadas" style="-fx-background-color: white; -fx-background-radius: 8;" text="Rejeitadas" />
             <Button fx:id="btnAprovadas" layoutX="127.0" layoutY="95.0" mnemonicParsing="false" onAction="#Aprovadas" style="-fx-background-color: white; -fx-background-radius: 8;" text="Aprovadas" />
-            <TableView layoutY="164.0" prefHeight="541.0" prefWidth="582.0" style="-fx-background-color: lightgray;">
+            <TableView fx:id="Tabelapromocao" layoutY="164.0" prefHeight="541.0" prefWidth="582.0" style="-fx-background-color: lightgray;">
               <columns>
                 <TableColumn fx:id="colProduto" prefWidth="111.0" text="Produto" />
                 <TableColumn fx:id="colPromocao" prefWidth="99.0" text="Promoção" />
