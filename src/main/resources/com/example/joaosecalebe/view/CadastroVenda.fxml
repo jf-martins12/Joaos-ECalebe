@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -10,7 +11,6 @@
    <children>
       <AnchorPane layoutX="142.0" layoutY="-1.0" prefHeight="733.0" prefWidth="821.0" style="-fx-background-color: lightgray;">
          <children>
-            <TextField fx:id="txtamanho" layoutX="258.0" layoutY="204.0" prefHeight="25.0" prefWidth="228.0" />
             <Button fx:id="btncadastrar" layoutX="249.0" layoutY="476.0" mnemonicParsing="false" onAction="#btncadastrar" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: green;" text="Cadastrar" />
             <Button fx:id="btnlimpar" layoutX="421.0" layoutY="476.0" mnemonicParsing="false" onAction="#btnlimpar" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #ffffff;" text="Limpar" />
             <TextField fx:id="txpreço" layoutX="258.0" layoutY="253.0" prefHeight="25.0" prefWidth="228.0" />
@@ -19,9 +19,7 @@
             <Text layoutX="177.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" wrappingWidth="67.0" />
             <TextField fx:id="txcodigo" layoutX="258.0" layoutY="354.0" prefHeight="25.0" prefWidth="228.0" />
             <Text layoutX="193.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo:" wrappingWidth="46.220703125" />
-            <TextField fx:id="txfornecedor" layoutX="258.0" layoutY="397.0" prefHeight="25.0" prefWidth="228.0" />
             <Text layoutX="177.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fornecedor:" wrappingWidth="67.0" />
-            <TextField fx:id="txcategoria" layoutX="258.0" layoutY="166.0" prefHeight="25.0" prefWidth="228.0" />
             <Text layoutX="199.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamanho:" wrappingWidth="56.220703125" />
             <Button fx:id="btnabrirestoque" layoutX="339.0" layoutY="541.0" mnemonicParsing="false" onAction="#btnabrirestoque" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: White;" text="Estoque" />
             <Text layoutX="258.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro De Produto">
@@ -32,6 +30,9 @@
             <TextField fx:id="txnome" layoutX="258.0" layoutY="125.0" prefHeight="25.0" prefWidth="228.0" />
             <Text layoutX="217.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="39.220703125" />
             <Text layoutX="189.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" wrappingWidth="56.220703125" />
+            <ComboBox fx:id="cbCategoria" layoutX="258.0" layoutY="166.0" prefHeight="25.0" prefWidth="228.0" />
+            <ComboBox fx:id="cbTamanho" layoutX="258.0" layoutY="204.0" prefHeight="25.0" prefWidth="228.0" />
+            <ComboBox fx:id="cbFornecedor" layoutX="258.0" layoutY="397.0" prefHeight="25.0" prefWidth="228.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

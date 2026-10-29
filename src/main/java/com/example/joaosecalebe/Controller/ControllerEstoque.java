@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import com.example.joaosecalebe.Controller.ControllerCadastroProduto;
 
 
 import java.io.IOException;
@@ -29,13 +30,14 @@ public class ControllerEstoque {
     private TableColumn<Produto, String> colcategoria;
 
     @FXML
+    private TableColumn<Produto, String> coltamanho;
+
+    @FXML
     private TableColumn<Produto, Double> colpreco;
 
     @FXML
     private TableColumn<Produto, Integer> colquantidade;
 
-    @FXML
-    private TableColumn<Produto, String> coltamanho;
 
     @FXML
     private TableColumn<Produto, Long> colcodigo;
@@ -72,6 +74,10 @@ public class ControllerEstoque {
                 new PropertyValueFactory<>("categoria")
         );
 
+        coltamanho.setCellValueFactory(
+                new PropertyValueFactory<>("tamanho")
+        );
+
         colpreco.setCellValueFactory(
                 new PropertyValueFactory<>("preço")
         );
@@ -80,9 +86,7 @@ public class ControllerEstoque {
                 new PropertyValueFactory<>("quantidade")
         );
 
-        coltamanho.setCellValueFactory(
-                new PropertyValueFactory<>("tamanho")
-        );
+
 
         colcodigo.setCellValueFactory(
                 new PropertyValueFactory<>("codigo")
@@ -149,12 +153,6 @@ public class ControllerEstoque {
             return;
         }
 
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("Editar Produto");
-        alerta.setHeaderText("Produto selecionado");
-        alerta.setContentText("Produto: " + produtoSelecionado.getNome());
-        alerta.showAndWait();
-
         try {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(
@@ -164,6 +162,10 @@ public class ControllerEstoque {
 
             Parent root = loader.load();
 
+            ControllerCadastroProduto controller = loader.getController();
+
+            controller.setProdutoParaEditar(produtoSelecionado);
+
             Stage stage = (Stage) tabelaEstoque.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -171,14 +173,13 @@ public class ControllerEstoque {
         } catch (IOException e) {
             e.printStackTrace();
 
-            alerta = new Alert(Alert.AlertType.ERROR);
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setTitle("Erro");
             alerta.setHeaderText(null);
             alerta.setContentText("Não foi possível abrir a tela de edição.");
             alerta.showAndWait();
         }
     }
-
 
 
 
@@ -195,6 +196,7 @@ public class ControllerEstoque {
 
             Stage stage = (Stage) tabelaEstoque.getScene().getWindow();
             stage.setScene(new Scene(root));
+
             stage.show();
 
         } catch (IOException e) {
