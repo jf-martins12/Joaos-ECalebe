@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="perfil" layoutX="151.0" prefHeight="120.0" prefWidth="812.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.ControllerPerfil">
+   <children>
+      <AnchorPane layoutX="26.0" layoutY="25.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white; -fx-background-radius: 100;" />
+      <Label fx:id="lbCargo" layoutX="109.0" layoutY="37.0" text="gerente" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNome" layoutX="109.0" layoutY="67.0" prefHeight="21.0" prefWidth="202.0" text="nome" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

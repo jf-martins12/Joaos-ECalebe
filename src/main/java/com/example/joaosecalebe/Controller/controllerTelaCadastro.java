@@ -1,6 +1,8 @@
 
 package com.example.joaosecalebe.Controller;
 
+import com.example.joaosecalebe.DataBase.DadosLogin;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import com.example.joaosecalebe.DataBase.DadosLogin;
+
 import java.io.IOException;
 
 public class controllerTelaCadastro {
@@ -24,6 +26,9 @@ public class controllerTelaCadastro {
     private TextField txEmail;
 
     @FXML
+    private TextField txNome;
+
+    @FXML
     private PasswordField txSenha;
 
     @FXML
@@ -32,12 +37,10 @@ public class controllerTelaCadastro {
     @FXML
     private Button btnLimpar;
 
-    private String senhaCorreta = "123456";
-    private String emailCorreto = "jec@gmail.com";
-
     @FXML
     public void initialize() {
 
+        // Formatação automática do CPF
         txCpf.textProperty().addListener((obs, antigo, novo) -> {
 
             String cpf = novo.replaceAll("\\D", "");
@@ -74,52 +77,72 @@ public class controllerTelaCadastro {
         txCpf.clear();
         txEmail.clear();
         txSenha.clear();
+        txNome.clear();
     }
 
     @FXML
     public void Confirmar(ActionEvent event) throws IOException {
 
-        String cpf = txCpf.getText();
-        String email = txEmail.getText();
+        String nome = txNome.getText().trim();
+        String cpf = txCpf.getText().trim();
+        String email = txEmail.getText().trim();
         String senha = txSenha.getText();
 
-        if (cpf.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+        // Verifica se todos os campos foram preenchidos
+        if (nome.isEmpty() || cpf.isEmpty()
+                || email.isEmpty() || senha.isEmpty()) {
 
             exibirAlerta(
                     Alert.AlertType.WARNING,
                     "Informações incompletas",
-                    "Coloque todas as informações"
+                    "Preencha todas as informações."
             );
 
-        } else if (!email.equalsIgnoreCase(DadosLogin.email)) {
+            return;
+        }
+
+        // Verifica se o e-mail está correto
+        if (!email.equalsIgnoreCase(DadosLogin.email)) {
 
             exibirAlerta(
                     Alert.AlertType.ERROR,
                     "E-mail incorreto",
-                    "Digite o e-mail correto"
-            );
-        } else if (senha.equals(DadosLogin.senha)) {
-
-            Parent root = FXMLLoader.load(
-                    getClass().getResource(
-                            "/com/example/joaosecalebe/view/Menu.fxml"
-                    )
+                    "Digite o e-mail correto."
             );
 
-            Stage stage = (Stage) ((Node) event.getSource())
-                    .getScene().getWindow();
+            return;
+        }
 
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } else {
+        // Verifica se a senha está correta
+        if (!senha.equals(DadosLogin.senha)) {
 
             exibirAlerta(
                     Alert.AlertType.ERROR,
                     "Senha incorreta",
                     "Tente novamente!"
             );
+
+            return;
         }
+
+        // SALVA OS DADOS PARA AS OUTRAS TELAS
+        DadosLogin.nome = nome;
+        DadosLogin.email = email;
+        DadosLogin.cpf = cpf;
+        DadosLogin.senha = senha;
+
+        // Abre o menu do sistema
+        Parent root = FXMLLoader.load(
+                getClass().getResource(
+                        "/com/example/joaosecalebe/view/Menu.fxml"
+                )
+        );
+
+        Stage stage = (Stage) ((Node) event.getSource())
+                .getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     private void exibirAlerta(
@@ -134,15 +157,17 @@ public class controllerTelaCadastro {
         alert.showAndWait();
     }
 
+    @FXML
     public void esquecisenha(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(
-                getClass().getResource("/com/example/joaosecalebe/view/EsqueciSenha.fxml")
+                getClass().getResource(
+                        "/com/example/joaosecalebe/view/EsqueciSenha.fxml"
+                )
         );
 
         Stage stage = (Stage) ((Node) event.getSource())
-                .getScene()
-                .getWindow();
+                .getScene().getWindow();
 
         stage.setScene(new Scene(root));
         stage.show();

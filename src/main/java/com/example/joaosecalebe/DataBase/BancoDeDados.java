@@ -26,6 +26,7 @@ public class BancoDeDados {
         vendas.add(new Venda("Camisa", "M", 90, "nike", 150, 1500, 10));
         vendas.add(new Venda("Calça", "40", 90, "Browns", 200, 2000, 10));
         vendas.add(new Venda("tenis", "41", 90, "Nike", 300, 3000, 10));
+
     }
 }
 

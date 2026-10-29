@@ -16,5 +16,6 @@
       <Button layoutX="14.0" layoutY="303.0" mnemonicParsing="false" onAction="#irfuncionarios" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="funcionarios " textFill="WHITE" />
       <Button layoutX="16.0" layoutY="352.0" mnemonicParsing="false" onAction="#irpromocoes" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="promoções" textFill="WHITE" />
       <Button layoutX="16.0" layoutY="398.0" mnemonicParsing="false" onAction="#irconfiguracoes" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="configurações" textFill="WHITE" />
+      <Button layoutX="14.0" layoutY="443.0" mnemonicParsing="false" onAction="#Sair" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Sair" textFill="WHITE" />
     </children>
 </AnchorPane>

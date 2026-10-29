@@ -8,21 +8,21 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="963.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joaosecalebe.Controller.controllerTelaCadastro">
-      <TextField fx:id="txCpf" layoutX="515.0" layoutY="210.0" prefHeight="34.0" prefWidth="411.0" promptText="000.000.000-00" />
-      <TextField fx:id="txEmail" layoutX="515.0" layoutY="267.0" prefHeight="34.0" prefWidth="411.0" promptText="E-mail" />
-      <Text layoutX="463.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
+      <TextField fx:id="txCpf" layoutX="515.0" layoutY="262.0" prefHeight="34.0" prefWidth="411.0" promptText="000.000.000-00" />
+      <TextField fx:id="txEmail" layoutX="515.0" layoutY="319.0" prefHeight="34.0" prefWidth="411.0" promptText="E-mail" />
+      <Text layoutX="463.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
           <font>
               <Font size="16.0" />
           </font>
       </Text>
-      <Text layoutX="472.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF">
+      <Text layoutX="472.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF">
           <font>
               <Font size="16.0" />
           </font>
       </Text>
-      <Button fx:id="btnCadastrar" layoutX="584.0" layoutY="397.0" mnemonicParsing="false" onAction="#Confirmar" prefHeight="34.0" prefWidth="287.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="CONFIRMAR" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Button layoutX="876.0" layoutY="448.0" mnemonicParsing="false" onAction="#limpar" style="-fx-background-color: black; -fx-background-radius: 30;" text="limpar" textFill="WHITE" />
-      <Text layoutX="463.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
+      <Button fx:id="btnCadastrar" layoutX="584.0" layoutY="449.0" mnemonicParsing="false" onAction="#Confirmar" prefHeight="34.0" prefWidth="287.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="CONFIRMAR" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
+      <Button layoutX="876.0" layoutY="500.0" mnemonicParsing="false" onAction="#limpar" style="-fx-background-color: black; -fx-background-radius: 30;" text="limpar" textFill="WHITE" />
+      <Text layoutX="463.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
           <font>
               <Font size="16.0" />
           </font>
@@ -46,7 +46,13 @@
          </Text>
       </children>
    </AnchorPane>
-   <Button fx:id="btnesqueceu" layoutX="802.0" layoutY="301.0" mnemonicParsing="false" onAction="#esquecisenha" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: white;" text="esqueceu a senha ? " textFill="#00bfff" />
-   <PasswordField fx:id="txSenha" layoutX="515.0" layoutY="330.0" prefHeight="34.0" prefWidth="411.0" promptText="sua senha " />
+   <Button fx:id="btnesqueceu" layoutX="802.0" layoutY="353.0" mnemonicParsing="false" onAction="#esquecisenha" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: white;" text="esqueceu a senha ? " textFill="#00bfff" />
+   <PasswordField fx:id="txSenha" layoutX="515.0" layoutY="382.0" prefHeight="34.0" prefWidth="411.0" promptText="sua senha " />
+   <TextField fx:id="txNome" layoutX="515.0" layoutY="207.0" prefHeight="34.0" prefWidth="411.0" promptText="Nome" />
+   <Text layoutX="463.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Text>
 
 </AnchorPane>

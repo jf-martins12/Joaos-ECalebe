@@ -13,7 +13,7 @@ import java.io.IOException;
 public class controllerNavBar {
 
     public void irconfiguracoes(ActionEvent event) throws IOException {
-        trocarTela(event, "configuracao.fxml");
+        trocarTela(event, "confg.fxml");
     }
     public void irpromocoes(ActionEvent event) throws IOException {
         trocarTela(event, "promocao.fxml");
@@ -31,6 +31,9 @@ public class controllerNavBar {
 
     public void irfuncionarios(ActionEvent event) throws IOException {
         trocarTela(event, "Cargo.fxml");
+    }
+    public void Sair(ActionEvent event) throws IOException {
+        trocarTela(event, "Inicio.fxml");
     }
 
     private void trocarTela(ActionEvent event, String arquivo) throws IOException {
